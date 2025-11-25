@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fokkus - Proposition de Partenariat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+/* 1. SETUP & RESETS */
+* { box-sizing: border-box; }
+
+body {
+    background-color: #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin: 0;
+    padding: 40px 0;
+    font-family: 'Inter', sans-serif;
+    color: #1A3050;
+}
+
+/* 2. SLIDE CANVAS */
+.slide-container {
+    background-color: #ffffff;
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. BRANDING */
+:root {
+    --primary: #1A3050;
+    --secondary: #80A3BA;
+    --bg-light: #F1F1F0;
+    --bg-white: #FFFFFF;
+}
+
+/* LOGO PLACEHOLDER STYLE */
+.logo-area {
+    position: absolute;
+    top: 50px;
+    left: 60px;
+    z-index: 100;
+}
+/* Cadre gris pour dire "Mettez le logo ici" */
+.logo-placeholder {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #ccc;
+    border: 2px dashed #ccc;
+    padding: 0 20px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+/* Si vous remplacez l'image, cette classe s'assurera qu'elle s'affiche bien */
+.logo-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+
+/* 4. TYPOGRAPHY & SPACING FIXES */
+h1 { font-size: 72px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin: 0; color: var(--primary); }
+h2 { font-size: 56px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 30px 0; color: var(--primary); line-height: 1.1; }
+h3 { font-size: 28px; font-weight: 600; margin: 0 0 15px 0; color: var(--primary); }
+p { font-size: 20px; line-height: 1.6; color: #444; margin: 0 0 20px 0; }
+.sub-title { color: var(--secondary); font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 20px; }
+
+/* 5. LAYOUTS */
+.layout-hero { display: grid; grid-template-columns: 1fr 1fr; height: 100%; }
+.hero-content { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+.hero-image { position: relative; height: 100%; overflow: hidden; }
+.hero-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.layout-content { padding: 80px; display: flex; flex-direction: column; justify-content: flex-start; height: 100%; }
+
+.layout-split { display: grid; grid-template-columns: 1.2fr 0.8fr; height: 100%; }
+.split-left { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+.split-right { background: var(--bg-light); display: flex; align-items: center; justify-content: center; padding: 40px; gap: 20px; }
+
+.layout-dark { background: var(--primary); color: white; display: flex; flex-direction: column; justify-content: center; padding: 0 80px; }
+.layout-dark h1, .layout-dark h2, .layout-dark p { color: white; }
+
+/* 6. COMPONENTS */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 20px; }
+.card-flex { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 40px; justify-content: space-between; }
+.card-flex .card { flex: 1 1 30%; min-width: 300px; }
+
+.card { background: var(--bg-light); padding: 30px; border-radius: 16px; border-left: 4px solid var(--primary); height: 100%; }
+.icon-box { width: 60px; height: 60px; background: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--primary); margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+/* Slide 4 Bottom Banner Redesign */
+.bottom-banner {
+    margin-top: 40px;
+    background: white;
+    border: 2px solid #eee;
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.stat-box { text-align: center; }
+.stat-number { font-size: 120px; font-weight: 800; color: var(--secondary); line-height: 1; }
+.stat-label { font-size: 24px; font-weight: 600; color: white; margin-top: 10px; }
+
+.timeline { display: flex; justify-content: space-between; margin-top: 60px; position: relative; }
+.timeline::before { content: ''; position: absolute; top: 24px; left: 0; right: 0; height: 2px; background: #ddd; z-index: 0; }
+.timeline-item { position: relative; z-index: 1; width: 30%; background: white; padding-right: 20px; }
+.dot { width: 50px; height: 50px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-bottom: 20px; box-shadow: 0 0 0 5px white; }
+
+/* Image Placeholders */
+.img-placeholder {
+    background: #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-weight: bold;
+    text-align: center;
+    border: 3px dashed #999;
+}
+.phone-mockup {
+    width: 280px;
+    height: 560px;
+    border-radius: 40px;
+}
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 30px;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1: TITLE -->
+    <div class="slide-container layout-hero" id="slide1">
+        <div class="logo-area">
+            <!-- REMPLACEZ CETTE IMAGE PAR VOTRE LOGO -->
+            <div class="logo-placeholder">LOGO FOKKUS ICI</div>
+            <!-- Exemple si vous aviez l'image : <img src="logo.png" class="logo-img"> -->
+        </div>
+        <div class="hero-content">
+            <span class="sub-title">PROJET D'ASSOCIATION</span>
+            <h1 style="margin-bottom: 20px;">FOKKUS</h1>
+            <p style="font-size: 24px; color: #555; font-weight: 300;">Devenez la référence scientifique<br>et pédagogique de Fokkus.</p>
+        </div>
+        <div class="hero-image">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/10766205936653227473" alt="Athlète concentré">
+        </div>
+    </div>
+
+    <!-- SLIDE 2: CONSTAT -->
+    <div class="slide-container layout-content" id="slide2" style="background: var(--bg-light); justify-content: center;">
+        <div class="logo-area">
+             <!-- LOGO -->
+             <div class="logo-placeholder">LOGO FOKKUS</div>
+        </div>
+        
+        <!-- ESPACEMENT AUGMENTÉ -->
+        <div style="margin-top: 100px;">
+            <span class="sub-title">POURQUOI MAINTENANT ?</span>
+            <h2>LE PHYSIQUE EST OPTIMISÉ.<br>LE MENTAL EST OUBLIÉ.</h2>
+        </div>
+        
+        <div class="grid-2">
+            <div style="background: white; padding: 40px; border-radius: 20px;">
+                <div class="icon-box"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <h3>Le Constat</h3>
+                <p>Aujourd'hui, la préparation physique est optimisée à 99%. La prochaine frontière de la performance, c'est le mental.</p>
+                <p>Pourtant, elle reste <strong>chère, élitiste ou mal digitalisée</strong>.</p>
+            </div>
+            <div style="background: var(--primary); color: white; padding: 40px; border-radius: 20px;">
+                <div class="icon-box" style="color: var(--primary);"><i class="fa-solid fa-eye"></i></div>
+                <h3 style="color: white;">Notre Vision</h3>
+                <p style="color: rgba(255,255,255,0.9);">Démocratiser l'accès à l'excellence mentale.</p>
+                <p style="color: rgba(255,255,255,0.9);">Faire de Fokkus l'outil de référence, capable de déclencher l'état de <strong>flow</strong> à la demande.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: PRODUIT (MAQUETTES) -->
+    <div class="slide-container layout-split" id="slide3">
+        <div class="split-left">
+            <div class="logo-area">
+                 <!-- LOGO -->
+                 <div class="logo-placeholder">LOGO FOKKUS</div>
+            </div>
+            <div style="margin-top: 60px;">
+                <span class="sub-title">CE QUE NOUS CONSTRUISONS</span>
+                <h2>L'EXPÉRIENCE FOKKUS.</h2>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <div style="margin-bottom: 25px;">
+                    <h3 style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-route" style="color: var(--secondary);"></i> Parcours Personnalisés</h3>
+                    <p>Programmes audio guidés (ex: "Gestion du stress").</p>
+                </div>
+                <div style="margin-bottom: 25px;">
+                    <h3 style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-kit-medical" style="color: var(--secondary);"></i> Emergency Kit</h3>
+                    <p>Exercices courts (2-3 min) pour un effet immédiat.</p>
+                </div>
+                <div>
+                    <h3 style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-trophy" style="color: var(--secondary);"></i> Gamification</h3>
+                    <p>Suivi de progression ludique (XP, Niveaux).</p>
+                </div>
+            </div>
+        </div>
+        <div class="split-right">
+            <!-- PLACEHOLDER POUR MAQUETTES -->
+            <div class="img-placeholder phone-mockup">
+                MAQUETTE<br>ACCUEIL
+            </div>
+             <div class="img-placeholder phone-mockup" style="height: 500px; width: 250px; opacity: 0.7;">
+                MAQUETTE<br>PROFIL
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: ROLE (AÉRÉ) -->
+    <div class="slide-container layout-content" id="slide4" style="background: var(--bg-white);">
+        <div class="logo-area">
+             <!-- LOGO -->
+             <div class="logo-placeholder">LOGO FOKKUS</div>
+        </div>
+        
+        <!-- ESPACEMENT DU HAUT CORRIGÉ -->
+        <div style="margin-top: 100px; margin-bottom: 20px;">
+            <span class="sub-title">VOTRE IMPACT</span>
+            <h2>HEAD OF MENTAL PERFORMANCE.</h2>
+        </div>
+
+        <div class="card-flex">
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-clipboard-question"></i></div>
+                <h3>Questionnaire</h3>
+                <p>Conception de l'algorithme de profilage pour établir le diagnostic mental.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-microphone-lines"></i></div>
+                <h3>Contenu & Parcours</h3>
+                <p>Création des scripts audio et structuration des cycles de progression.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-flask"></i></div>
+                <h3>Science</h3>
+                <p>Validation scientifique des méthodes et incarnation de l'expertise Fokkus.</p>
+            </div>
+        </div>
+
+        <!-- BANDEAU BAS REFAIT -->
+        <div class="bottom-banner">
+            <div class="icon-box" style="margin-bottom: 0; background: var(--secondary); color: white;"><i class="fa-solid fa-clock"></i></div>
+            <div style="flex: 1;">
+                <h3 style="margin: 0; font-size: 24px;">Investissement Temps</h3>
+                <p style="margin: 0; font-size: 18px; color: #555;">Flexible, Asynchrone & Compatible avec votre activité.</p>
+            </div>
+             <div style="text-align: right;">
+                 <span style="font-size: 32px; font-weight: 800; color: var(--primary);">4 à 8h</span><br>
+                 <span style="font-size: 14px; color: #888;">par semaine</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: OFFRE -->
+    <div class="slide-container layout-dark" id="slide5">
+        <div class="logo-area">
+             <!-- LOGO BLANC -->
+             <div class="logo-placeholder" style="color: white; border-color: white;">LOGO FOKKUS</div>
+        </div>
+        <div style="text-align: center; margin-bottom: 60px;">
+            <span class="sub-title" style="color: var(--secondary);">LA PROPOSITION DE VALEUR</span>
+            <h2>REJOIGNEZ L'ÉQUIPE FONDATRICE</h2>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: center; gap: 80px;">
+            <div class="stat-box">
+                <div class="stat-number">10%</div>
+                <div class="stat-label">EQUITY (CAPITAL)</div>
+            </div>
+            <div style="height: 150px; width: 2px; background: rgba(255,255,255,0.2);"></div>
+            <div style="max-width: 500px;">
+                <h3 style="color: white; margin-bottom: 20px;">Statut d'Associé</h3>
+                <p style="color: rgba(255,255,255,0.8); font-size: 20px;">
+                    Vous ne travaillez pas "pour" Fokkus, vous possédez Fokkus.
+                </p>
+                <ul style="color: rgba(255,255,255,0.8); font-size: 18px; margin-top: 20px; padding-left: 20px;">
+                    <li style="margin-bottom: 10px;">Vesting 4 ans (Standard marché).</li>
+                    <li style="margin-bottom: 10px;">Valorisation de vos parts à la sortie (Exit).</li>
+                    <li>Rémunération future déclenchée à la rentabilité.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: ROADMAP (CHIFFRES À JOUR) -->
+    <div class="slide-container layout-content" id="slide6" style="background: var(--bg-light);">
+        <div class="logo-area">
+             <!-- LOGO -->
+             <div class="logo-placeholder">LOGO FOKKUS</div>
+        </div>
+        <div style="margin-top: 40px;">
+            <span class="sub-title">L'ÉVOLUTION</span>
+            <h2>LA TRAJECTOIRE.</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="dot">1</div>
+                <h3>Année 1</h3>
+                <p><strong>Lancement App.</strong><br>Sortie iOS/Android.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="dot">2</div>
+                <h3>Année 2</h3>
+                <p><strong>Traction & B2B.</strong><br>Intégration clubs pros.<br><br>
+                <span style="color: var(--primary); font-weight: 700; font-size: 24px;">4 500</span><br>
+                <span style="font-size: 14px;">Utilisateurs Premium</span></p>
+            </div>
+            <div class="timeline-item">
+                <div class="dot">3</div>
+                <h3>Année 3</h3>
+                <p><strong>Leader Européen.</strong><br>IA Prédictive.<br><br>
+                <span style="color: var(--primary); font-weight: 700; font-size: 24px;">90 000</span><br>
+                <span style="font-size: 14px;">Utilisateurs Actifs</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: CONCLUSION (TITRE CHANGÉ + PHOTO) -->
+    <div class="slide-container layout-hero" id="slide7">
+         <div class="logo-area">
+             <!-- LOGO -->
+             <div class="logo-placeholder">LOGO FOKKUS</div>
+        </div>
+        <div class="hero-content" style="text-align: center; align-items: center;">
+            <h1 style="font-size: 72px; margin-bottom: 30px;">REJOIGNEZ<br>L'AVENTURE</h1>
+            <p style="font-size: 24px; max-width: 700px; margin-bottom: 50px;">
+                Construisons ensemble la référence de la préparation mentale.
+            </p>
+            
+            <div style="background: var(--bg-light); padding: 20px 40px; border-radius: 60px; display: inline-flex; align-items: center; border: 1px solid #ddd;">
+                <!-- PLACEHOLDER PHOTO -->
+                <div class="img-placeholder profile-photo">
+                    VOTRE<br>PHOTO
+                </div>
+                <div style="text-align: left;">
+                    <div style="font-weight: 700; font-size: 22px; color: var(--primary);">Oscar Boittiaux</div>
+                    <div style="color: #666; font-size: 16px;">CEO & Fondateur</div>
+                    <div style="color: var(--secondary); font-weight: 600; font-size: 16px;">oscar@fokkus.fr</div>
+                </div>
+            </div>
+        </div>
+         <div class="hero-image">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/10766205936653227473" alt="Abstract Tech">
+            <div style="position: absolute; inset: 0; background: rgba(255,255,255,0.1);"></div>
+        </div>
+    </div>
+
+</body>
+</html>
