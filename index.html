@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fokkus - Proposition de Partenariat</title>
+    <title>Fokkus - Partner Deck</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* 1. SETUP & RESETS */
@@ -17,17 +16,17 @@
         }
 
         body {
-            background-color: #e5e5e5;
+            background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 40px;
             margin: 0;
             padding: 40px 0;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: #1A3050;
             -webkit-font-smoothing: antialiased;
-            /* Rendu de texte plus net (Mac) */
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* 2. SLIDE CANVAS */
@@ -37,98 +36,82 @@
             height: 720px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-            /* Ombre plus douce et diffuse */
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease;
+            border-radius: 4px;
         }
 
         /* 3. BRANDING */
         :root {
             --primary: #1A3050;
+            /* Bleu Nuit */
+            --primary-light: #2A456B;
             --secondary: #80A3BA;
-            --bg-light: #F1F1F0;
+            /* Bleu Acier */
+            --bg-light: #F8F9FA;
             --bg-white: #FFFFFF;
+            --text-grey: #666666;
+            --border-color: #E5E5E5;
         }
 
-        /* LOGO PLACEHOLDER STYLE */
+        /* LOGO */
         .logo-area {
             position: absolute;
-            top: 50px;
+            top: 40px;
             left: 60px;
             z-index: 100;
         }
 
-        .logo-placeholder {
-            height: 50px;
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-            color: #aaa;
-            border: 2px dashed #ddd;
-            padding: 0 20px;
-            border-radius: 8px;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 0.05em;
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(5px);
-        }
-
         .logo-img {
-            height: 45px;
+            height: 32px;
             width: auto;
             object-fit: contain;
         }
 
-
-        /* 4. TYPOGRAPHY & SPACING FIXES */
+        /* 4. TYPOGRAPHY */
         h1 {
-            font-size: 72px;
+            font-size: 80px;
             font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1;
-            margin: 0;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+            margin: 0 0 24px 0;
             color: var(--primary);
-            animation: slideUpFade 0.8s ease-out forwards;
         }
 
         h2 {
-            font-size: 56px;
+            font-size: 52px;
             font-weight: 700;
-            letter-spacing: -0.02em;
-            margin: 0 0 30px 0;
+            letter-spacing: -0.03em;
+            margin: 0 0 32px 0;
             color: var(--primary);
             line-height: 1.1;
-            animation: slideUpFade 0.8s ease-out 0.1s forwards;
-            opacity: 0;
-            /* Pour l'animation */
         }
 
         h3 {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 600;
-            margin: 0 0 15px 0;
+            margin: 0 0 12px 0;
             color: var(--primary);
+            letter-spacing: -0.01em;
         }
 
         p {
-            font-size: 20px;
+            font-size: 18px;
             line-height: 1.6;
-            color: #444;
-            margin: 0 0 20px 0;
+            color: var(--text-grey);
+            margin: 0 0 24px 0;
+            font-weight: 400;
         }
 
         .sub-title {
             color: var(--secondary);
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
             display: block;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-out forwards;
+            margin-bottom: 16px;
         }
 
         /* 5. LAYOUTS */
@@ -139,46 +122,44 @@
         }
 
         .hero-content {
-            padding: 80px 60px;
+            padding: 80px 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            background: white;
+            position: relative;
+            z-index: 10;
         }
 
         .hero-image {
             position: relative;
             height: 100%;
             overflow: hidden;
+            background: #f0f0f0;
         }
 
         .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.5s ease;
-        }
-
-        /* Effet de zoom lent sur l'image hero */
-        .slide-container:hover .hero-image img {
-            transform: scale(1.05);
         }
 
         .layout-content {
-            padding: 80px;
+            padding: 60px 80px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             height: 100%;
         }
 
         .layout-split {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1fr 1fr;
             height: 100%;
         }
 
         .split-left {
-            padding: 80px 60px;
+            padding: 60px 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -190,7 +171,18 @@
             align-items: center;
             justify-content: center;
             padding: 40px;
-            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .split-right::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: #EBF1F5;
+            border-radius: 50%;
+            z-index: 0;
         }
 
         .layout-dark {
@@ -200,6 +192,19 @@
             flex-direction: column;
             justify-content: center;
             padding: 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .layout-dark::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent 60%);
+            pointer-events: none;
         }
 
         .layout-dark h1,
@@ -212,188 +217,215 @@
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 40px;
             margin-top: 20px;
         }
 
-        .card-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 40px;
-            justify-content: space-between;
-        }
-
-        .card-flex .card {
-            flex: 1 1 30%;
-            min-width: 300px;
-        }
-
         .card {
-            background: var(--bg-light);
-            padding: 30px;
-            border-radius: 16px;
-            border-left: 4px solid var(--primary);
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
             height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card.dark {
+            background: var(--primary);
+            color: white;
+        }
+
+        .card.dark h3,
+        .card.dark p {
+            color: white;
+        }
+
+        .card.dark .icon-box {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-            background: white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
         .icon-box {
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 12px;
+            width: 56px;
+            height: 56px;
+            background: var(--bg-light);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 24px;
             color: var(--primary);
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            margin-bottom: 24px;
         }
 
-        .card:hover .icon-box {
-            transform: scale(1.1) rotate(5deg);
+        /* PHONE MOCKUP CSS ONLY */
+        .phone-mockup-container {
+            position: relative;
+            z-index: 1;
+            width: 300px;
+            height: 600px;
+            background: #111;
+            border-radius: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            padding: 12px;
+            transform: rotate(-5deg);
+            transition: transform 0.5s ease;
         }
 
-        /* Slide 4 Bottom Banner Redesign */
+        .phone-mockup-container:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 36px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 24px;
+            background: #111;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            z-index: 10;
+        }
+
+        /* CARDS FLEX */
+        .card-flex {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card-flex .card {
+            flex: 1;
+        }
+
+        /* BOTTOM BANNER */
         .bottom-banner {
             margin-top: 40px;
             background: white;
-            border: 1px solid #eee;
-            /* Bordure plus fine */
-            border-radius: 16px;
-            padding: 30px;
+            border-radius: 20px;
+            padding: 30px 40px;
             display: flex;
             align-items: center;
-            gap: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            gap: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
 
-        .bottom-banner:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .stat-box {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 120px;
-            font-weight: 800;
-            color: var(--secondary);
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 24px;
-            font-weight: 600;
-            color: white;
-            margin-top: 10px;
-            opacity: 0.9;
-        }
-
+        /* TIMELINE */
         .timeline {
             display: flex;
             justify-content: space-between;
-            margin-top: 60px;
+            margin-top: 80px;
             position: relative;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            top: 24px;
-            left: 0;
-            right: 0;
+            top: 20px;
+            left: 40px;
+            right: 40px;
             height: 2px;
-            background: #e0e0e0;
+            background: #E5E5E5;
             z-index: 0;
         }
 
         .timeline-item {
             position: relative;
             z-index: 1;
-            width: 30%;
+            width: 28%;
             background: transparent;
-            padding-right: 20px;
         }
 
         .dot {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: 4px solid var(--primary);
+            color: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            margin-bottom: 20px;
-            box-shadow: 0 0 0 5px white, 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            font-weight: 800;
+            margin-bottom: 24px;
+            font-size: 16px;
+            transition: all 0.3s ease;
         }
 
         .timeline-item:hover .dot {
-            transform: scale(1.2);
-            background: var(--secondary);
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
         }
 
-        /* Image Placeholders */
-        .img-placeholder {
-            background: #f0f0f0;
-            display: flex;
-            flex-direction: column;
+        /* PROFILE */
+        .profile-card {
+            background: white;
+            padding: 12px 30px 12px 12px;
+            border-radius: 100px;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            color: #888;
-            font-weight: 600;
-            text-align: center;
-            border: 2px dashed #ccc;
-            transition: background 0.3s ease;
-        }
-
-        .img-placeholder:hover {
-            background: #e9e9e9;
-            color: #666;
-        }
-
-        .phone-mockup {
-            width: 280px;
-            height: 560px;
-            border-radius: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            /* Ombre réaliste téléphone */
-            border: none;
-            /* On enlève le dashed pour le mockup principal */
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            /* Faux écran */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .profile-photo {
-            width: 120px;
-            height: 120px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            margin-right: 30px;
+            margin-right: 24px;
             object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border: none;
         }
 
-        /* ANIMATIONS KEYFRAMES */
-        @keyframes slideUpFade {
+        /* STATS */
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 100px;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
 
             to {
@@ -402,14 +434,28 @@
             }
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
+        .slide-container * {
+            animation: none;
+        }
 
-            to {
-                opacity: 1;
-            }
+        .slide-container h1 {
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .slide-container h2 {
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s forwards;
+            opacity: 0;
+        }
+
+        .slide-container p {
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+            opacity: 0;
+        }
+
+        .card,
+        .timeline-item {
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+            opacity: 0;
         }
     </style>
 </head>
@@ -423,8 +469,8 @@
         </div>
         <div class="hero-content">
             <span class="sub-title">Projet d'association</span>
-            <h1 style="margin-bottom: 20px;">Fokkus</h1>
-            <p style="font-size: 24px; color: #555; font-weight: 300;">La préparation mentale de haut
+            <h1 style="margin-bottom: 24px;">Fokkus</h1>
+            <p style="font-size: 24px; color: var(--text-grey); font-weight: 400;">La préparation mentale de haut
                 niveau,<br>accessible à tous les sportifs.</p>
         </div>
         <div class="hero-image">
@@ -440,26 +486,25 @@
             <img src="assets/fokkus_logo.png" class="logo-img" alt="Logo Fokkus">
         </div>
 
-        <!-- ESPACEMENT AUGMENTÉ -->
-        <div style="margin-top: 100px;">
+        <div style="margin-top: 80px;">
             <span class="sub-title">Pourquoi maintenant ?</span>
             <h2>Le physique est optimisé.<br>Le mental est oublié.</h2>
         </div>
 
         <div class="grid-2">
-            <div style="background: white; padding: 40px; border-radius: 20px;">
+            <div class="card">
                 <div class="icon-box"><i class="fa-solid fa-triangle-exclamation"></i></div>
                 <h3>Le constat</h3>
                 <p>Aujourd'hui, la préparation physique est optimisée à 99%. La prochaine frontière de la performance,
                     c'est le mental.</p>
                 <p>Pourtant, elle reste <strong>chère, élitiste ou mal digitalisée</strong>.</p>
             </div>
-            <div style="background: var(--primary); color: white; padding: 40px; border-radius: 20px;">
-                <div class="icon-box" style="color: var(--primary);"><i class="fa-solid fa-eye"></i></div>
-                <h3 style="color: white;">Notre vision</h3>
-                <p style="color: rgba(255,255,255,0.9);">Démocratiser l'accès à l'excellence mentale.</p>
-                <p style="color: rgba(255,255,255,0.9);">Faire de Fokkus l'outil de référence, capable de déclencher
-                    l'état de <strong>flow</strong> à la demande.</p>
+            <div class="card dark">
+                <div class="icon-box"><i class="fa-solid fa-eye"></i></div>
+                <h3>Notre vision</h3>
+                <p>Démocratiser l'accès à l'excellence mentale.</p>
+                <p>Faire de Fokkus l'outil de référence, capable de déclencher l'état de <strong>flow</strong> à la
+                    demande.</p>
             </div>
         </div>
     </div>
@@ -475,28 +520,36 @@
                 <h2>L'expérience Fokkus.</h2>
             </div>
 
-            <div style="margin-top: 20px;">
-                <div style="margin-bottom: 25px;">
-                    <h3 style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-route"
-                            style="color: var(--secondary);"></i> Parcours personnalisés</h3>
-                    <p>Diagnostic et profil mental personnalisé (stress, confiance, motivation).</p>
+            <div style="margin-top: 40px;">
+                <div style="margin-bottom: 30px;">
+                    <h3 style="display: flex; align-items: center; gap: 16px; font-size: 20px;"><i
+                            class="fa-solid fa-route" style="color: var(--secondary);"></i> Parcours personnalisés</h3>
+                    <p style="margin-bottom: 0; font-size: 16px;">Diagnostic et profil mental personnalisé (stress,
+                        confiance, motivation).</p>
                 </div>
-                <div style="margin-bottom: 25px;">
-                    <h3 style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-kit-medical"
-                            style="color: var(--secondary);"></i> Routine quotidienne</h3>
-                    <p>Programmes audio guidés adaptés à vos objectifs et votre rythme.</p>
+                <div style="margin-bottom: 30px;">
+                    <h3 style="display: flex; align-items: center; gap: 16px; font-size: 20px;"><i
+                            class="fa-solid fa-kit-medical" style="color: var(--secondary);"></i> Routine quotidienne
+                    </h3>
+                    <p style="margin-bottom: 0; font-size: 16px;">Programmes audio guidés adaptés à vos objectifs et
+                        votre rythme.</p>
                 </div>
                 <div>
-                    <h3 style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-robot"
-                            style="color: var(--secondary);"></i> Coach IA 24/7</h3>
-                    <p>Un accompagnement constant pour maintenir l'engagement.</p>
+                    <h3 style="display: flex; align-items: center; gap: 16px; font-size: 20px;"><i
+                            class="fa-solid fa-robot" style="color: var(--secondary);"></i> Coach IA 24/7</h3>
+                    <p style="margin-bottom: 0; font-size: 16px;">Un accompagnement constant pour maintenir
+                        l'engagement.</p>
                 </div>
             </div>
         </div>
         <div class="split-right">
-            <!-- MAQUETTE -->
-            <img src="assets/app_mockup.png" class="phone-mockup" style="object-fit: cover; border: 8px solid #1A3050;"
-                alt="Maquette App Fokkus">
+            <!-- MAQUETTE AVEC CADRE CSS -->
+            <div class="phone-mockup-container">
+                <div class="phone-notch"></div>
+                <div class="phone-screen">
+                    <img src="assets/app_mockup.png" alt="Maquette App Fokkus">
+                </div>
+            </div>
         </div>
     </div>
 
@@ -506,8 +559,7 @@
             <img src="assets/fokkus_logo.png" class="logo-img" alt="Logo Fokkus">
         </div>
 
-        <!-- ESPACEMENT DU HAUT CORRIGÉ -->
-        <div style="margin-top: 100px; margin-bottom: 20px;">
+        <div style="margin-top: 80px; margin-bottom: 20px;">
             <span class="sub-title">Votre impact</span>
             <h2>Head of mental performance.</h2>
         </div>
@@ -530,7 +582,6 @@
             </div>
         </div>
 
-        <!-- BANDEAU BAS REFAIT -->
         <div class="bottom-banner">
             <div class="icon-box" style="margin-bottom: 0; background: var(--secondary); color: white;"><i
                     class="fa-solid fa-clock"></i></div>
@@ -549,7 +600,6 @@
     <!-- SLIDE 5: OFFRE -->
     <div class="slide-container layout-dark" id="slide5">
         <div class="logo-area">
-            <!-- LOGO BLANC (Filtre CSS pour le rendre blanc si c'est un PNG noir, sinon utiliser une version blanche) -->
             <img src="assets/fokkus_logo.png" class="logo-img" style="filter: brightness(0) invert(1);"
                 alt="Logo Fokkus">
         </div>
@@ -624,9 +674,7 @@
                 Construisons ensemble la référence de la préparation mentale.
             </p>
 
-            <div
-                style="background: var(--bg-light); padding: 20px 40px; border-radius: 60px; display: inline-flex; align-items: center; border: 1px solid #ddd;">
-                <!-- PHOTO OSCAR -->
+            <div class="profile-card">
                 <img src="assets/oscar_photo.jpg" class="profile-photo" alt="Oscar Boittiaux">
                 <div style="text-align: left;">
                     <div style="font-weight: 700; font-size: 22px; color: var(--primary);">Oscar Boittiaux</div>
